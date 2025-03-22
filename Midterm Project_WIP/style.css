@@ -1,0 +1,167 @@
+.Cupid {
+  width: 70%;
+  height: 70%;
+
+}
+
+
+
+.Cupid-Image {
+  background-image: url('Homepage_Animation/Cupid.gif');
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-position: center;
+  object-fit: cover; /* Ensures the image fills the space */
+  background-repeat: no-repeat;
+  z-index: 1; /* so its behind everything else*/
+}
+
+.eye {
+  position: absolute;
+  top: 37%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+/* Left eye position */
+.eye:nth-child(1) {
+  left: 35%;
+}
+
+/* Right eye position */
+.eye:nth-child(2) {
+  left: 59%;
+}
+
+.lefteye, .righteye {
+  position: absolute;
+  /* No rotation origin needed anymore */
+}
+
+  .Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  position: fixed; /* More responsive than absolute */
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px; /* Prevents excessive stretching */
+  z-index: 10; /* Ensure it's above background */
+}
+
+.Portfolio, .Characters, .About {
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+  padding: 20px 30px;
+  background-color: rgb(163, 117, 152);
+  opacity: 80%;
+  color: antiquewhite;
+  font-family: monospace;
+  font-size: xx-large;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth animations */
+}
+
+
+html {
+  cursor: url('Homepage_Animation/heartcursor.png'), pointer;
+}
+
+/* Default display states */
+.Background {
+  display: block;
+}
+
+.Background-Mobile {
+  display: none;
+}
+
+.Cupid-Mobile {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140vw;
+  height: 140vh;
+  z-index: -2;
+  background-image: url('Homepage_Animation/Cupidmobile.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none; /* Default to hidden */
+}
+
+/* 1300px Fix: Adjust for Larger Laptops */
+@media (max-width: 1500px) {
+  .Container {
+      top: 45%; /* Adjust vertical positioning */
+      max-width: 700px;
+  }
+  .Portfolio, .Characters, .About {
+      padding: 18px 28px;
+      font-size: x-large;
+  }
+}
+/* Mobile Styles (Screen Width ≤ 1024px) */
+@media (max-width: 1390px) {
+  .Cupid, .Cupid-Image {
+    display: none;
+  }
+  .eye {
+    display: none;
+  }
+  .Background-Mobile {
+    display: block;
+  }
+  
+  .Cupid-Mobile {
+    display: block;
+  }
+
+  .Container {
+    top: 45%; /* Adjust vertical positioning */
+    max-width: 700px;
+  }
+.Portfolio, .Characters, .About {
+    padding: 18px 28px;
+    font-size: x-large;
+  }
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+  .Container {
+      flex-direction: column; /* Stack elements */
+      top: 50%;
+      max-width: 500px;
+  }
+  .Portfolio, .Characters, .About {
+      width: 80%; /* Wider buttons for better touch */
+      padding: 15px 25px;
+      font-size: x-large;
+      margin: 15px 0;
+  }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  .Container {
+      width: 50%;
+      top: 50%;
+  }
+  .Portfolio, .Characters, .About {
+      width: 100%; /* Full width buttons */
+      padding: 12px 20px;
+      font-size: x-large;
+  }
+}}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+    <title>Favy Web</title>
+    <meta name="characters" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet", href="style.css"> <!--specifies identity as style sheet + link to css file-->
+</head>
+<body>
+  <!-- Background container -->
+  <div class="background-container">
+    <div class="desktop-background"></div>
+        <div class = "Cupid"></div>
+    <div class="mobile-background"></div>
+        <div class = "CupidMobile"></div>
+  </div><!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Favy Web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- so web can scale correctly -->
+    <link rel="stylesheet" href="style.css"> <!--specifies identity as style sheet + link to css file--->
+    <script>
+      document.addEventListener('mousemove', eyeball);
+      function eyeball(event) {
+        const eyes = document.querySelectorAll('.eye img');
+        eyes.forEach(eye => {
+          // Get the eye and its container position
+          const eyeContainer = eye.parentElement;
+          const containerRect = eyeContainer.getBoundingClientRect();
+          // Calculate the center of the eye container
+          const containerX = containerRect.left + containerRect.width / 2;
+          const containerY = containerRect.top + containerRect.height / 2;
+          // Calculate the angle between mouse and eye container
+          const deltaX = event.clientX - containerX;
+          const deltaY = event.clientY - containerY;
+          // Calculate distance from cursor to eye
+          const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+          // Limit movement radius (adjust this value as needed)
+          const maxMovement = 20;
+          // Calculate movement ratio (capped at max movement)
+          const movementRatio = Math.min(1, maxMovement / distance);
+          // Calculate the new position with limited movement
+          const moveX = deltaX * movementRatio;
+          const moveY = deltaY * movementRatio;
+          // Apply the translation instead of rotation
+          eye.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+      }
+    </script>
+    <!-- helps improve load speed for future java script-->
+    <meta name="Home" content="Homepage">
+  </head>
+  <body>
+    <div id="page">
+      <div class="Container">
+        <nav>
+          <a href="Characters/characters.html" class="Characters">Characters</a> <!-- prepping to style nav links into buttons -->
+          <a href="Portfolio/portfolio.html" class="Portfolio">Portfolio</a>
+          <a href="About/about.html" class="About">About</a>
+        </nav>
+      </div>
+      <div class="Background">
+        <div class="Cupid">
+          <div class="Cupid-Image"></div>
+        </div>
+        <div class="eyes">
+          <div class="eye">
+            <img class="lefteye" id="cupid-left-eye" alt="Cupid's left eye" src="Homepage_Animation/LeftEye.png">
+          </div>
+          <div class="eye">
+            <img class="righteye" id="cupid-right-eye" alt="Cupid's right eye" src="Homepage_Animation/RightEye.png">
+          </div>
+        </div>
+      </div>
+      <div class="Background-Mobile">
+        <div class="Cupid-Mobile"></div>
+      </div>
+    </div>
+  </body>
+  </html>
+  
+  <!-- Eyes -->
+  <div class="eyes">
+    <div class="eye">
+      <img class="lefteye" alt="Cupid's left eye" src="Homepage_Animation/LeftEye.png">   <!-- left url in css to troubleshoot easier -->
+
+    </div>
+    <div class="eye">
+      <img class="righteye" alt="Cupid's right eye" src="Homepage_Animation/RightEye.png">
+    </div>
+  </div>
+
+  <!-- Eye movement script -->
+  <script>
+    document.addEventListener('mousemove', eyeball);
+    function eyeball(event) {
+      const eyes = document.querySelectorAll('.eye img');
+      eyes.forEach(eye => {
+        // Get the eye and its container position
+        const eyeContainer = eye.parentElement;
+        const containerRect = eyeContainer.getBoundingClientRect();
+        // Calculate the center of the eye container
+        const containerX = containerRect.left + containerRect.width / 2;
+        const containerY = containerRect.top + containerRect.height / 2;
+        // Calculate the angle between mouse and eye container
+        const deltaX = event.clientX - containerX;
+        const deltaY = event.clientY - containerY;
+        // Calculate distance from cursor to eye
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        // Limit movement radius (adjust this value as needed)
+        const maxMovement = 23;
+        // Calculate movement ratio (capped at max movement)
+        const movementRatio = Math.min(1, maxMovement / distance);
+        // Calculate the new position with limited movement
+        const moveX = deltaX * movementRatio;
+        const moveY = deltaY * movementRatio;
+        // Apply the translation
+        eye.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+.navbar {
+    position: fixed; /* Makes it stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 15px;
+    background: rgb(163, 117, 152); 
+    opacity: 99%;
+    text-align: center; /* Centers the links */
+    z-index: 1000; /* Ensures it's on top */
+}
+
+.navbar a {
+    color: antiquewhite;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: monospace;
+    padding: 15px 15px;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    cursor: inherit;
+}
+
+.navbar a:hover {
+    background: rgb(205, 155, 193);
+    color:burlywood;
+}
+
+.navbar a:not(:last-child) {
+    margin-right: 20px;
+}
+
+
+body {
+    padding: 30; /* Adjust based on navbar height */
+    margin: 5;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: rgb(243,202, 198);
+}
+
+html {
+    cursor: url('../Homepage_Animation/heartcursor.png'), pointer;
+  }
